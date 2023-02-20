@@ -1,0 +1,37 @@
+# Project: trapeza
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ch6_QArray.o ch6_Simulation.o TStoixeiouOuras.o tameio.o
+LINKOBJ  = ch6_QArray.o ch6_Simulation.o TStoixeiouOuras.o tameio.o
+LIBS     = -L"E:/installetion files/appdata/Dev-Cpp/MinGW64/lib" -L"E:/installetion files/appdata/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"E:/installetion files/appdata/Dev-Cpp/MinGW64/include" -I"E:/installetion files/appdata/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/installetion files/appdata/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"E:/installetion files/appdata/Dev-Cpp/MinGW64/include" -I"E:/installetion files/appdata/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/installetion files/appdata/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/installetion files/appdata/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = trapeza.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+ch6_QArray.o: ch6_QArray.c
+	$(CC) -c ch6_QArray.c -o ch6_QArray.o $(CFLAGS)
+
+ch6_Simulation.o: ch6_Simulation.c
+	$(CC) -c ch6_Simulation.c -o ch6_Simulation.o $(CFLAGS)
+
+TStoixeiouOuras.o: TStoixeiouOuras.c
+	$(CC) -c TStoixeiouOuras.c -o TStoixeiouOuras.o $(CFLAGS)
+
+tameio.o: tameio.c
+	$(CC) -c tameio.c -o tameio.o $(CFLAGS)
